@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mi Página Personal - Miguel Valencia</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body style="background-color: #f5f5f5;">
+
+    <!-- CABECERA -->
+    <header class="bg-dark text-white py-3">
+      <div class="container">
+        <div class="row align-items-center text-center">
+          <div class="col-md-4 mb-2 mb-md-0">
+            <h3 class="mb-0">Miguel Angel Valencia Riaño</h3>
+          </div>
+          <div class="col-md-4">
+            <img src="./img/cuarta.jpg" alt="Logo" width="40" height="40">
+          </div>
+          <div class="col-md-4">
+            <a href="https://www.instagram.com" target="_blank" class="text-white me-3" class="color" >Instagram</a>
+            <a href="https://www.facebook.com" target="_blank" class="text-white" class="color" >Facebook</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="container mt-4">
+      <div class="row">
+        
+        <!-- COLUMNA IZQUIERDA -->
+        <div class="col-md-8 mb-4">
+          <div class="p-4 bg-white rounded shadow">
+            <h4 class="mb-3 text-primary">Sobre mí</h4>
+            <p>
+              Hola, soy <strong>Miguel Angel Valencia Riaño</strong>, tengo 19 años y estudio en la 
+              <strong>Universidad Uniremington</strong>. Actualmente curso el cuarto semestre de 
+              <strong>Ingeniería en Sistemas</strong>.  
+              Me encanta el trap en ingles, despues de este texto dejo un boton con mi cancion favorita que es justamente de Drake (un temazo) y la música en general. 
+              Pues la verdad ya ni se que colocar en este texto, ya es simple y puro relleno nomas para que no quede tan corto y sin vida esta parte. Gracias por leer.
+            </p>
+            <div class="text-center mt-3">
+              <a href="https://www.youtube.com/watch?v=xpVfcZ0ZcFM" 
+                 target="_blank" 
+                 class="btn btn-danger btn-lg">
+                🎵 Escuchar “God’s Plan” – Drake
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- COLUMNA DERECHA -->
+        <div class="col-md-4">
+          <div class="p-4 bg-white rounded shadow mb-4">
+            <h4 class="mb-3 text-success">Mis hobbies</h4>
+            <ul>
+              <li>Jugar fútbol ⚽</li>
+              <li>Ir al gimnasio 💪</li>
+              <li>Trabajo de medio tiempo 👨‍💻</li>
+            </ul>
+          </div>
+
+          <!-- CARRUSEL -->
+          <div id="carouselExampleInterval" class="carousel slide rounded shadow" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active" data-bs-interval="3000">
+                <img src="./img/futbol.gif" class="d-block w-100 rounded" style="height: 250px; object-fit: cover;" alt="...">
+              </div>
+              <div class="carousel-item" data-bs-interval="3000">
+                <img src="./img/fullgym.gif" class="d-block w-100 rounded" style="height: 250px; object-fit: cover;" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="./img/wolfstreet.gif" class="d-block w-100 rounded" style="height: 250px; object-fit: cover;" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Siguiente</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
