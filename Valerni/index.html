@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valerni — Moda elegante</title>
+
+    <style>
+    body{
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #f2f2f2;
+    }
+
+    header{
+        background: #111;
+        color: #fff;
+        padding: 20px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    }
+
+    nav ul{
+        list-style: none;
+        display: flex;
+        gap: 25px;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav ul li a{
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 8px 12px;
+        border-radius: 6px;
+        transition: 0.3s;
+    }
+
+    nav ul li a:hover{
+        background: #444;
+        transform: scale(1.05);
+    }
+
+    section{
+        padding: 25px;
+        max-width: 850px;
+        margin: auto;
+    }
+
+    /* Tarjetas para cada sección */
+    section > div, section form{
+        background: #fff;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        margin-top: 20px;
+    }
+
+    h2{
+        color: #111;
+        border-left: 5px solid #111;
+        padding-left: 10px;
+    }
+
+    label{
+        font-weight: bold;
+        margin-top: 15px;
+        display: block;
+    }
+
+    input[type="radio"]{
+        transform: scale(1.2);
+        margin-right: 8px;
+    }
+
+    button{
+        background: #111;
+        color: #fff;
+        padding: 12px 18px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-top: 15px;
+        font-size: 15px;
+        transition: 0.3s;
+    }
+
+    button:hover{
+        opacity: .85;
+        transform: scale(1.03);
+    }
+
+    .hidden{
+        display: none;
+    }
+
+    .resultado-img{
+        width: 320px;
+        margin-top: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+</style>
+
+    <script>
+        function mostrarSeccion(id){
+            document.getElementById("info").classList.add("hidden");
+            document.getElementById("formulario").classList.add("hidden");
+            document.getElementById("noticias").classList.add("hidden");
+
+            document.getElementById(id).classList.remove("hidden");
+        }
+
+        function evaluarFormulario(){
+            let respuestasCorrectas = 0;
+
+            // Respuestas correctas
+            const correctas = {
+                p1: "c",
+                p2: "a",
+                p3: "b",
+                p4: "c",
+                p5: "a",
+                p6: "b"
+            };
+
+            for(let i = 1; i <= 6; i++){
+                let seleccion = document.querySelector(`input[name="p${i}"]:checked`);
+                if(seleccion && seleccion.value === correctas[`p${i}`]){
+                    respuestasCorrectas++;
+                }
+            }
+
+            let resultado = document.getElementById("resultado");
+            resultado.innerHTML = `<h2>Resultado: ${respuestasCorrectas} correctas</h2>`;
+
+            // Mostrar imagen según cantidad de respuestas correctas
+            let img = document.createElement("img");
+            img.classList.add("resultado-img");
+
+            if(respuestasCorrectas === 6){
+                // -------------------------------
+                // PRIMER PUESTO (GANADOR)
+
+                img.src = "https://st2.depositphotos.com/4100307/8004/v/450/depositphotos_80046792-stock-illustration-golden-laurel-for-first-place.jpg"; 
+            }
+            else if(respuestasCorrectas >= 3 && respuestasCorrectas <= 5){
+                // -------------------------------
+                // SEGUNDO PUESTO
+
+                img.src = "https://thumbs.dreamstime.com/z/segundo-lugar-etiqueta-plateada-del-ganador-puesto-200938960.jpg";
+            }
+            else{
+                // -------------------------------
+                // PERDEDOR
+
+                img.src = "data:image/png;base64,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";
+            }
+
+            resultado.appendChild(img);
+        }
+    </script>
+</head>
+
+<body>
+
+<header>
+    <h1>Valerni — Moda elegante</h1>
+
+    <!-- LOGO DE LA EMPRESA -->
+
+    <img src="img/logo.png" width="80" alt="Foto">
+
+    <nav>
+        <ul>
+            <li><a href="#" onclick="mostrarSeccion('info')">Información</a></li>
+            <li><a href="#" onclick="mostrarSeccion('formulario')">Formulario</a></li>
+            <li><a href="#" onclick="mostrarSeccion('noticias')">Noticias</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- SECCIÓN INFORMACIÓN -->
+<section id="info">
+    <h2>¿Quiénes somos?</h2>
+    <p><strong>Valerni</strong> es una empresa colombiana de moda que inicia su camino en el mercado de ropa elegante y moderna. Buscamos combinar estilo, calidad y comodidad para todo tipo de público.</p>
+
+    <h3>Misión</h3>
+    <p>Brindar prendas de vestir modernas, elegantes y accesibles, diseñadas para destacar la identidad y confianza de cada cliente en Colombia.</p>
+
+    <h3>Visión</h3>
+    <p>Convertirnos en una marca reconocida a nivel nacional por nuestra calidad, innovación y diseño, logrando presencia en las principales ciudades del país.</p>
+</section>
+
+<!-- SECCIÓN FORMULARIO -->
+<section id="formulario" class="hidden">
+    <h2>Formulario — ¿Cuánto sabes sobre crear empresas?</h2>
+    <p>Responde las 6 preguntas:</p>
+
+    <form>
+        <p>1. ¿Qué es un emprendimiento?<br>
+            <input type="radio" name="p1" value="a"> Un trabajo común<br>
+            <input type="radio" name="p1" value="b"> Un pasatiempo<br>
+            <input type="radio" name="p1" value="c"> Crear y desarrollar una idea de negocio<br>
+        </p>
+
+        <p>2. ¿Qué es un plan de negocios?<br>
+            <input type="radio" name="p2" value="a"> Un documento con estrategias y objetivos<br>
+            <input type="radio" name="p2" value="b"> Un contrato<br>
+            <input type="radio" name="p2" value="c"> Un registro de gastos<br>
+        </p>
+
+        <p>3. ¿Qué es el público objetivo?<br>
+            <input type="radio" name="p3" value="a"> Todos los colombianos<br>
+            <input type="radio" name="p3" value="b"> Personas a quienes va dirigida la empresa<br>
+            <input type="radio" name="p3" value="c"> Competidores<br>
+        </p>
+
+        <p>4. ¿Para qué sirve el marketing?<br>
+            <input type="radio" name="p4" value="a"> Para gastar dinero<br>
+            <input type="radio" name="p4" value="b"> Para contratar empleados<br>
+            <input type="radio" name="p4" value="c"> Para promocionar productos y atraer clientes<br>
+        </p>
+
+        <p>5. ¿Qué significa inversión?<br>
+            <input type="radio" name="p5" value="a"> Destinar dinero para recibir ganancias<br>
+            <input type="radio" name="p5" value="b"> Ahorrar sin gastar<br>
+            <input type="radio" name="p5" value="c"> Regalar dinero<br>
+        </p>
+
+        <p>6. ¿Qué es un mercado competitivo?<br>
+            <input type="radio" name="p6" value="a"> Un lugar vacío<br>
+            <input type="radio" name="p6" value="b"> Muchas empresas ofreciendo productos similares<br>
+            <input type="radio" name="p6" value="c"> Sólo una empresa vende<br>
+        </p>
+
+        <button type="button" onclick="evaluarFormulario()">Enviar respuestas</button>
+    </form>
+
+    <div id="resultado"></div>
+</section>
+
+<!-- SECCIÓN NOTICIAS -->
+<section id="noticias" class="hidden">
+    <h2>Noticias de moda</h2>
+
+    <h3>Marcas de ropa reconocidas</h3>
+    <ul>
+        <li>Nike</li>
+        <li>Adidas</li>
+        <li>Zara</li>
+        <li>H&M</li>
+        <li>Gucci</li>
+    </ul>
+
+    <h3>Video relacionado con la moda</h3>
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/sWwKVDgCW08?si=mqU7GPanUDDU6DTo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</section>
+
+</body>
+</html>
